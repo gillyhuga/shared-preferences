@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_pref/splashScreen.dart';
+import 'package:shared_pref/loginPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Dashboard extends StatefulWidget {
@@ -25,6 +25,15 @@ class _DashboardState extends State<Dashboard> {
     });
   }
 
+  void _logOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('isUser');
+    prefs.setString('username', username);
+    prefs.setString('fullname', fullname);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => Login()));
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +41,7 @@ class _DashboardState extends State<Dashboard> {
         title: Text('Dashboard'),
         backgroundColor: Color(0xffF3AB0D),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.logout), onPressed: () {})
+          IconButton(icon: Icon(Icons.logout), onPressed: _logOut)
         ],
       ),
       body: Center(
@@ -44,13 +53,13 @@ class _DashboardState extends State<Dashboard> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      "Selamat Datang",
+                      "Hai, Selamat Datang",
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    Image.asset('assets/images/imageLogin.png'),
+                    Image.asset('assets/images/imageDashboard.png'),
                   ],
                 ),
               ),
@@ -73,7 +82,7 @@ class _DashboardState extends State<Dashboard> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(15.0),
                             child: Container(
                               decoration: BoxDecoration(
                                   color: Colors.white,
@@ -92,14 +101,14 @@ class _DashboardState extends State<Dashboard> {
                             ),
                           ),
                           Text(
-                            "Username",
+                            "$fullname",
                             style: TextStyle(
                               fontSize: 19,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                           Text(
-                            "Nama",
+                            "$username",
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w300,
