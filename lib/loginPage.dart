@@ -34,40 +34,76 @@ class _LoginState extends State<Login> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 8.0) ,
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
                         TextField(
                             controller: _username,
                             decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.person_outline,
-                              size: 20,),
+                              prefixIcon: Icon(
+                                Icons.person_outline,
+                                size: 20,
+                              ),
                               hintText: 'Username',
-                              contentPadding: const EdgeInsets.only(
-                                  bottom: 8.0, top: 8.0),
+                              contentPadding:
+                                  const EdgeInsets.only(bottom: 8.0, top: 8.0),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.grey),
                               ),
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.transparent),
+                                borderSide:
+                                    BorderSide(color: Colors.transparent),
                               ),
                             )),
                         TextField(
                             obscureText: true,
                             controller: _pass,
                             decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.lock_outline,
-                              size: 20,),
+                              prefixIcon: Icon(
+                                Icons.lock_outline,
+                                size: 20,
+                              ),
                               hintText: 'Password',
-                              contentPadding: const EdgeInsets.only(
-                              bottom: 8.0, top: 8.0),
+                              contentPadding:
+                                  const EdgeInsets.only(bottom: 8.0, top: 8.0),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.grey),
                               ),
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.transparent),
+                                borderSide:
+                                    BorderSide(color: Colors.transparent),
                               ),
                             )),
                       ],
                     ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                              margin: const EdgeInsets.only(top: 8.0) ,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Lupa Password ?",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                    ],
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20),

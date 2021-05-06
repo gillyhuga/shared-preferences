@@ -9,7 +9,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         backgroundColor: Color(0xffF5F6F8),
         fontFamily: "Nunito",
       ),
