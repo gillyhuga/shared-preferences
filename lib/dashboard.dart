@@ -27,7 +27,7 @@ class _DashboardState extends State<Dashboard> {
 
   void _logOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.remove('isUser');
+    prefs.remove('user');
     prefs.setString('username', username);
     prefs.setString('fullname', fullname);
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => Login()));

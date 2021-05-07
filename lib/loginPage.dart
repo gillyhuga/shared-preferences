@@ -151,7 +151,7 @@ class _LoginState extends State<Login> {
               _pass.text == dataAssisten[id]["PassWord"]) {
             String fullname = dataAssisten[id]["FullName"];
             String username = dataAssisten[id]["UserName"];
-            prefs.setBool('isUser', true);
+            prefs.setBool('user', true);
             prefs.setString('username', username);
             prefs.setString('fullname', fullname);
             Navigator.pushReplacement(

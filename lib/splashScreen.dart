@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shared_pref/loginPage.dart';
+import 'package:shared_pref/dashboard.dart';
 import 'dart:async';
 
 class SplashScreen extends StatefulWidget {
+  final bool user;
+  SplashScreen(this.user);
+  
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -14,18 +18,18 @@ class _SplashScreenState extends State<SplashScreen> {
     startSplashScreen();
   }
 
-  startSplashScreen() async {
+  startSplashScreen() {
     var duration = const Duration(seconds: 3);
     return Timer(duration, () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        return Login();
-      }));
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (c) => widget.user ? Dashboard() : Login()),
+      );
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+  return Scaffold(
         backgroundColor: Color(0xffF3AB0D),
         body: Center(
           child: Text(
@@ -38,4 +42,4 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
         ));
   }
-}
+  }
